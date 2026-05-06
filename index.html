@@ -20,6 +20,8 @@
         nav { background: #333; padding: 10px; color: white; text-align: center; } 
         nav a { color: white; text-decoration: none; }
         blockquote { font-style: italic; color: #555; border-left: 4px solid #ccc; padding-left: 10px; margin: 20px 0; }
+        input { padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; width: 80%; }
+        button { padding: 8px 15px; cursor: pointer; margin: 5px; }
     </style>
 </head>
 <body>
@@ -31,8 +33,7 @@
 
     <div class="container">
         <h1>Olá, GitHub!</h1>
-        <p>Este é meu primeiro arquivo para testar commits.</p>
-        <p>Esta é a segunda tarefa feita em uma branch separada!</p>
+        <p>Este é meu projeto de teste.</p>
         
         <h2>Nossos Serviços</h2>
         <ul style="list-style: none; padding: 0;">
@@ -43,16 +44,25 @@
         <section>
             <blockquote>"O Git mudou minha vida!" - Dev Iniciante</blockquote>
         </section>
+
+        <input type="text" id="nome" placeholder="Seu nome"><br>
         
+        <!-- Adicionei o botão para chamar sua nova função -->
+        <button onclick="dizerOi()">Dizer Oi</button>
         <button onclick="mudarCor()">Mudar Cor</button>
         
         <p><a href="sobre.html">Ir para Sobre</a></p>
     </div>
 
     <script>
-    // Lógica para saudação ao carregar a página
     const hora = new Date().getHours(); 
     if(hora < 12) alert('Bom dia!');
+
+    // Sua nova função adicionada aqui
+    function dizerOi() { 
+        const n = document.getElementById('nome').value; 
+        alert('Oi ' + n); 
+    }
 
     function mudarCor() {
         document.body.style.backgroundColor = 
