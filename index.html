@@ -26,7 +26,7 @@
     <nav>
         <a href="#">Home</a> | 
         <a href="#">Serviços</a> | 
-        <a href="contato.html">Contato</a> <!-- Link adicionado aqui -->
+        <a href="contato.html">Contato</a>
     </nav>
 
     <div class="container">
@@ -50,6 +50,10 @@
     </div>
 
     <script>
+    // Lógica para saudação ao carregar a página
+    const hora = new Date().getHours(); 
+    if(hora < 12) alert('Bom dia!');
+
     function mudarCor() {
         document.body.style.backgroundColor = 
             '#' + Math.floor(Math.random()*16777215).toString(16);
