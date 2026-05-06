@@ -5,7 +5,8 @@
     <title>Meu Teste GitHub</title>
     <link rel="icon" href="https://flaticon.com">
     <style>
-        body { background-color: #f0f0f2; font-family: sans-serif; }
+        /* Estilos Base */
+        body { background-color: #f0f0f2; font-family: sans-serif; transition: background 0.3s, color 0.3s; }
         h1 { color: #2c3e50; }
         h2 { color: blue; }
         .container {
@@ -16,6 +17,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
+            transition: background 0.3s;
         }
         nav { background: #333; padding: 10px; color: white; text-align: center; } 
         nav a { color: white; text-decoration: none; }
@@ -25,13 +27,21 @@
         #foto { width: 100px; height: 100px; border-radius: 50%; background: #ddd; object-fit: cover; }
         input { padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; width: 80%; }
 
-        /* Estilos do contador */
+        /* Contador */
         .contador-container { margin: 20px; padding: 15px; background: #e3f2fd; border-radius: 10px; }
         #valor-contador { font-weight: bold; color: #1976d2; font-size: 1.5em; }
         button { cursor: pointer; margin: 5px; padding: 8px 12px; border: none; border-radius: 5px; }
         #btn-incrementar { background: #4caf50; color: white; }
         #btn-zerar { background: #f44336; color: white; }
         .btn-acao { background: #607d8b; color: white; }
+
+        /* Estilos do Modo Escuro */
+        body.dark-mode { background-color: #121212; color: #ffffff; }
+        body.dark-mode .container { background-color: #1e1e1e; color: #ffffff; }
+        body.dark-mode h1, body.dark-mode h2 { color: #bb86fc; }
+        body.dark-mode blockquote { color: #bbb; }
+        .theme-switch { margin-bottom: 15px; }
+        #toggle-theme { background: #333; color: white; border: 1px solid #555; }
     </style>
 </head>
 <body>
@@ -46,6 +56,11 @@
             <img id="foto" src="https://placeholder.com" alt="Foto">
             <h3 id="nome-usuario">Nome do Usuário</h3>
             <p id="bio">Sua bio aparece aqui...</p>
+        </div>
+
+        <!-- Botão de Alternar Tema -->
+        <div class="theme-switch">
+            <button id="toggle-theme">Alternar Modo Escuro</button>
         </div>
 
         <h1>Olá, GitHub!</h1>
@@ -92,18 +107,21 @@
             '#' + Math.floor(Math.random()*16777215).toString(16);
     }
 
-    // Lógica do Contador que você criou
+    // Lógica do Contador
     let count = 0;
     const display = document.getElementById('valor-contador');
-
     document.getElementById('btn-incrementar').onclick = function() {
         count++;
         display.innerText = count;
     };
-
     document.getElementById('btn-zerar').onclick = function() {
         count = 0;
         display.innerText = count;
+    };
+
+    // Lógica do Modo Escuro
+    document.getElementById('toggle-theme').onclick = function() {
+        document.body.classList.toggle('dark-mode');
     };
     </script>
 </body>
