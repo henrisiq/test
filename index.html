@@ -1,4 +1,9 @@
-">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Teste GitHub</title>
+    <link rel="icon" href="https://flaticon.com">
     <style>
         body { background-color: #f0f0f2; font-family: sans-serif; }
         h1 { color: #2c3e50; }
@@ -17,16 +22,10 @@
         blockquote { font-style: italic; color: #555; border-left: 4px solid #ccc; padding-left: 10px; margin: 20px 0; }
         input { padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; width: 80%; }
         button { padding: 8px 15px; cursor: pointer; margin: 5px; }
-
-        /* Estilos para o perfil que você adicionou */
         #perfil { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
         #foto { width: 100px; height: 100px; border-radius: 50%; background: #ddd; object-fit: cover; }
         #nome-usuario { margin: 10px 0 5px; }
         #bio { color: #666; font-size: 0.9em; }
-        #perfil { border: 1px solid #ddd; padding: 15px; margin-top: 20px; }
-        #foto { border-radius: 50%; width: 80px; }
-        #nome-usuario { color: #333; margin: 10px 0 5px; }
-
     </style>
 </head>
 <body>
@@ -37,7 +36,6 @@
     </nav>
 
     <div class="container">
-        <!-- Seu novo bloco de perfil inserido aqui -->
         <div id="perfil">
             <img id="foto" src="https://placeholder.com" alt="Foto">
             <h3 id="nome-usuario">Nome do Usuário</h3>
@@ -45,14 +43,7 @@
         </div>
 
         <h1>Olá, GitHub!</h1>
-        <p>Este é meu projeto de teste.</p>
         
-        <h2>Nossos Serviços</h2>
-        <ul style="list-style: none; padding: 0;">
-            <li>Consultoria</li>
-            <li>Desenvolvimento</li>
-        </ul>
-
         <section>
             <blockquote>"O Git mudou minha vida!" - Dev Iniciante</blockquote>
         </section>
@@ -66,14 +57,27 @@
     </div>
 
     <script>
+    // Saudação inicial
     const hora = new Date().getHours(); 
     if(hora < 12) alert('Bom dia!');
 
+    // Nova função para carregar dados do perfil
+    function carregarPerfil() {
+        document.getElementById('nome-usuario').innerText = "Hique Dev";
+        document.getElementById('bio').innerText = "Aprendendo Git e GitHub na prática! 🚀";
+    }
+    
+    // Executa ao carregar a página
+    carregarPerfil();
+
     function dizerOi() { 
         const n = document.getElementById('nome').value; 
-        alert('Oi ' + n); 
-        // Dica: Que tal atualizar o nome no perfil com o que foi digitado?
-        if(n) document.getElementById('nome-usuario').innerText = n;
+        if(n) {
+            alert('Oi ' + n); 
+            document.getElementById('nome-usuario').innerText = n;
+        } else {
+            alert('Por favor, digite seu nome!');
+        }
     }
 
     function mudarCor() {
