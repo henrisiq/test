@@ -5,25 +5,8 @@
     <title>Meu Teste GitHub</title>
     <link rel="icon" href="https://flaticon.com">
     <style>
-        /* Estilo da Barra de Progresso no Topo */
-        #progress-container { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 5px; 
-            background: #ccc; 
-            z-index: 1000; /* Garante que fique acima de tudo */
-        }
-        #progress-bar { 
-            height: 5px; 
-            background: #4caf50; 
-            width: 0%; 
-            transition: width 0.3s ease; /* Suaviza o movimento */
-        }
-
         /* Estilo padrão (Modo Claro) */
-        body { background-color: #f0f0f2; font-family: sans-serif; transition: background 0.3s, color 0.3s; margin-top: 10px; }
+        body { background-color: #f0f0f2; font-family: sans-serif; transition: background 0.3s, color 0.3s; margin: 0; padding-top: 5px; }
         h1 { color: #2c3e50; }
         h2 { color: blue; }
         .container {
@@ -35,6 +18,22 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
             transition: background 0.3s;
+        }
+
+        /* Estilo da Barra de Progresso (Fixa no Topo) */
+        #progress-container { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 5px; 
+            background: #ccc; 
+            z-index: 1000; 
+        }
+        #progress-bar { 
+            height: 5px; 
+            background: #4caf50; 
+            width: 0%; 
         }
 
         /* Modo Escuro */
@@ -79,7 +78,7 @@
     </style>
 </head>
 <body>
-    <!-- Barra de Progresso no Topo -->
+    <!-- Barra de Progresso -->
     <div id="progress-container"><div id="progress-bar"></div></div>
 
     <nav>
@@ -101,6 +100,7 @@
             <button id="btn-zerar">Zerar</button>
         </div>
 
+        <!-- Seção de Frases -->
         <div class="box-frase">
             <p id="texto-frase">Clique no botão para se inspirar!</p>
             <button id="btn-nova-frase">Nova Frase</button>
@@ -109,9 +109,20 @@
         <input type="text" id="nome" placeholder="Seu nome"><br>
         <button class="btn-acao" onclick="dizerOi()">Dizer Oi</button>
         <button class="btn-acao" onclick="mudarCor()">Mudar Cor</button>
+
+        <!-- Espaçador apenas para permitir o teste do scroll, pode remover se não quiser -->
+        <div style="height: 1000px;"></div>
     </div>
 
     <script>
+        // Lógica de Scroll da Barra de Progresso
+        window.onscroll = () => { 
+            const winScroll = document.documentElement.scrollTop; 
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight; 
+            const scrolled = (winScroll / height) * 100; 
+            document.getElementById("progress-bar").style.width = scrolled + "%"; 
+        };
+
         // Perfil
         function carregarPerfil() {
             document.getElementById('nome-usuario').innerText = "Hique Dev";
@@ -129,27 +140,18 @@
             document.body.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
         }
 
-        // Lógica do Contador e Barra de Progresso
+        // Contador
         let count = 0;
         const display = document.getElementById('valor-contador');
-        const progressBar = document.getElementById('progress-bar');
-
-        function atualizarProgresso() {
-            // A barra preenche 10% por clique, limitando a 100%
-            let percent = Math.min(count * 10, 100);
-            progressBar.style.width = percent + '%';
-        }
 
         document.getElementById('btn-incrementar').onclick = () => { 
             count++; 
             display.innerText = count; 
-            atualizarProgresso();
         };
 
         document.getElementById('btn-zerar').onclick = () => { 
             count = 0; 
             display.innerText = count; 
-            atualizarProgresso();
         };
 
         // Tema
