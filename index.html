@@ -20,14 +20,20 @@
         nav { background: #333; padding: 10px; color: white; text-align: center; } 
         nav a { color: white; text-decoration: none; }
         blockquote { font-style: italic; color: #555; border-left: 4px solid #ccc; padding-left: 10px; margin: 20px 0; }
-        input { padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; width: 80%; }
-        button { padding: 8px 15px; cursor: pointer; margin: 5px; border-radius: 4px; border: 1px solid #ddd; }
+        
         #perfil { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
         #foto { width: 100px; height: 100px; border-radius: 50%; background: #ddd; object-fit: cover; }
+        input { padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; width: 80%; }
+
+        /* Seus novos estilos para o contador */
+        .contador-container { margin: 20px; padding: 15px; background: #e3f2fd; border-radius: 10px; }
+        #valor-contador { font-weight: bold; color: #1976d2; font-size: 1.5em; }
+        button { cursor: pointer; margin: 5px; padding: 8px 12px; border: none; border-radius: 5px; }
+        #btn-incrementar { background: #4caf50; color: white; }
+        #btn-zerar { background: #f44336; color: white; }
         
-        /* Estilo para o novo contador */
-        .contador-container { margin: 20px 0; padding: 10px; border: 1px dashed #ccc; border-radius: 8px; }
-        #valor-contador { color: #e74c3c; font-weight: bold; }
+        /* Estilo extra para o botão de mudar cor não ficar sem cor */
+        .btn-acao { background: #607d8b; color: white; }
     </style>
 </head>
 <body>
@@ -50,7 +56,6 @@
             <blockquote>"O Git mudou minha vida!" - Dev Iniciante</blockquote>
         </section>
 
-        <!-- Seção do Contador adicionada aqui -->
         <div class="contador-container">
             <h2>Contador: <span id="valor-contador">0</span></h2>
             <button id="btn-incrementar">Aumentar +1</button>
@@ -59,8 +64,8 @@
 
         <input type="text" id="nome" placeholder="Seu nome"><br>
         
-        <button onclick="dizerOi()">Dizer Oi</button>
-        <button onclick="mudarCor()">Mudar Cor</button>
+        <button class="btn-acao" onclick="dizerOi()">Dizer Oi</button>
+        <button class="btn-acao" onclick="mudarCor()">Mudar Cor</button>
         
         <p><a href="sobre.html">Ir para Sobre</a></p>
     </div>
@@ -88,7 +93,7 @@
             '#' + Math.floor(Math.random()*16777215).toString(16);
     }
 
-    // A lógica para os botões do contador deve ser adicionada aqui
+    // O próximo passo é adicionar a lógica dos eventos para o contador.
     </script>
 </body>
 </html>
