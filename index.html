@@ -20,11 +20,28 @@
             transition: background 0.3s;
         }
 
+        /* Estilo da Barra de Progresso */
+        #progress-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 10px 0;
+            height: 10px;
+            overflow: hidden;
+        }
+        #progress-bar {
+            width: 30%; /* Exemplo de preenchimento */
+            height: 100%;
+            background-color: #4caf50;
+            transition: width 0.3s;
+        }
+
         /* Modo Escuro */
         body.dark-mode { background-color: #1a1a1a !important; color: #ffffff !important; }
         body.dark-mode .container { background-color: #2d2d2d; color: #ffffff; }
         body.dark-mode h1, body.dark-mode h2 { color: #bb86fc; }
         body.dark-mode .box-frase { background: #3d2b1f; color: #eee; border-left-color: #e65100; }
+        body.dark-mode #progress-container { background-color: #444; }
 
         /* Navegação e Perfil */
         nav { background: #333; padding: 10px; color: white; text-align: center; } 
@@ -74,6 +91,11 @@
 
         <button id="toggle-theme">Alternar Modo Escuro</button>
 
+        <!-- Barra de Progresso Adicionada -->
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
         <div class="contador-container">
             <h2>Contador: <span id="valor-contador">0</span></h2>
             <button id="btn-incrementar">Aumentar +1</button>
@@ -109,11 +131,28 @@
             document.body.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
         }
 
-        // Contador
+        // Contador e Barra de Progresso
         let count = 0;
         const display = document.getElementById('valor-contador');
-        document.getElementById('btn-incrementar').onclick = () => { count++; display.innerText = count; };
-        document.getElementById('btn-zerar').onclick = () => { count = 0; display.innerText = count; };
+        const progressBar = document.getElementById('progress-bar');
+
+        function atualizarProgresso() {
+            // Exemplo: a cada clique aumenta 10% da barra até 100%
+            let percent = Math.min(count * 10, 100);
+            progressBar.style.width = percent + '%';
+        }
+
+        document.getElementById('btn-incrementar').onclick = () => { 
+            count++; 
+            display.innerText = count; 
+            atualizarProgresso();
+        };
+
+        document.getElementById('btn-zerar').onclick = () => { 
+            count = 0; 
+            display.innerText = count; 
+            atualizarProgresso();
+        };
 
         // Tema
         document.getElementById('toggle-theme').onclick = () => document.body.classList.toggle('dark-mode');
