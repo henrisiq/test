@@ -72,9 +72,22 @@ nav a { color: white; text-decoration: none; }
 }
 
 /* Botões e Inputs */
-button { cursor: pointer; margin: 5px; padding: 8px 12px; border: none; border-radius: 5px; }
-#btn-incrementar { background: #4caf50; color: white; }
-#btn-zerar { background: #f44336; color: white; }
-.btn-acao { background: #607d8b; color: white; }
+button { 
+    cursor: pointer; 
+    margin: 5px; 
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    background: #eee; 
+    border-radius: 5px; 
+}
+
+.active-tab { 
+    background: #fff; 
+    border-bottom: 2px solid blue; 
+}
+
+#btn-incrementar { background: #4caf50; color: white; border: none; }
+#btn-zerar { background: #f44336; color: white; border: none; }
+.btn-acao { background: #607d8b; color: white; border: none; }
 #toggle-theme { background: #333; color: white; border: 1px solid #555; }
 input { padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; width: 80%; }
