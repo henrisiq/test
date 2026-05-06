@@ -1,5 +1,6 @@
 # EcoTask
-📋 DescriçãoO EcoTask é uma lista de tarefas (To-Do List) minimalista criada para ajudar usuários a organizarem suas rotinas diárias com foco em hábitos sustentáveis. O projeto foi desenvolvido para praticar conceitos básicos de manipulação de listas e interface limpa. 
+## Descrição📋
+- O EcoTask é uma lista de tarefas (To-Do List) minimalista criada para ajudar usuários a organizarem suas rotinas diárias com foco em hábitos sustentáveis. O projeto foi desenvolvido para praticar conceitos básicos de manipulação de listas e interface limpa. 
 
 🚀 Funcionalidades
 Adicionar novas tarefas.
