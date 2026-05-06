@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Meu Teste GitHub</title>
-    <link rel="icon" href="https://flaticon.com">
+">
     <style>
         body { background-color: #f0f0f2; font-family: sans-serif; }
         h1 { color: #2c3e50; }
@@ -22,6 +17,12 @@
         blockquote { font-style: italic; color: #555; border-left: 4px solid #ccc; padding-left: 10px; margin: 20px 0; }
         input { padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; width: 80%; }
         button { padding: 8px 15px; cursor: pointer; margin: 5px; }
+
+        /* Estilos para o perfil que você adicionou */
+        #perfil { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        #foto { width: 100px; height: 100px; border-radius: 50%; background: #ddd; object-fit: cover; }
+        #nome-usuario { margin: 10px 0 5px; }
+        #bio { color: #666; font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -32,6 +33,13 @@
     </nav>
 
     <div class="container">
+        <!-- Seu novo bloco de perfil inserido aqui -->
+        <div id="perfil">
+            <img id="foto" src="https://placeholder.com" alt="Foto">
+            <h3 id="nome-usuario">Nome do Usuário</h3>
+            <p id="bio">Sua bio aparece aqui...</p>
+        </div>
+
         <h1>Olá, GitHub!</h1>
         <p>Este é meu projeto de teste.</p>
         
@@ -47,7 +55,6 @@
 
         <input type="text" id="nome" placeholder="Seu nome"><br>
         
-        <!-- Adicionei o botão para chamar sua nova função -->
         <button onclick="dizerOi()">Dizer Oi</button>
         <button onclick="mudarCor()">Mudar Cor</button>
         
@@ -58,10 +65,11 @@
     const hora = new Date().getHours(); 
     if(hora < 12) alert('Bom dia!');
 
-    // Sua nova função adicionada aqui
     function dizerOi() { 
         const n = document.getElementById('nome').value; 
         alert('Oi ' + n); 
+        // Dica: Que tal atualizar o nome no perfil com o que foi digitado?
+        if(n) document.getElementById('nome-usuario').innerText = n;
     }
 
     function mudarCor() {
