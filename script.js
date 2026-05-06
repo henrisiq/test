@@ -1,3 +1,8 @@
+// Contagem de Caracteres em Tempo Real
+document.getElementById('texto').oninput = function() { 
+    document.getElementById('contagem').innerText = this.value.length; 
+};
+
 // Lógica de Scroll da Barra de Progresso
 window.onscroll = () => { 
     const winScroll = document.documentElement.scrollTop; 
