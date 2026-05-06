@@ -6,15 +6,9 @@
     <link rel="icon" href="https://flaticon.com">
     <style>
         /* Estilo padrão (Modo Claro) */
-        body { 
-            background-color: #f0f0f2; 
-            font-family: sans-serif; 
-            transition: background 0.3s, color 0.3s; 
-        }
-        
+        body { background-color: #f0f0f2; font-family: sans-serif; transition: background 0.3s, color 0.3s; }
         h1 { color: #2c3e50; }
         h2 { color: blue; }
-        
         .container {
             max-width: 400px;
             margin: 50px auto;
@@ -26,33 +20,44 @@
             transition: background 0.3s;
         }
 
-        /* Regras para quando o Modo Escuro estiver ativo */
-        body.dark-mode {
-            background-color: #1a1a1a !important;
-            color: #ffffff !important;
-        }
-        body.dark-mode .container {
-            background-color: #2d2d2d;
-            color: #ffffff;
-        }
+        /* Modo Escuro */
+        body.dark-mode { background-color: #1a1a1a !important; color: #ffffff !important; }
+        body.dark-mode .container { background-color: #2d2d2d; color: #ffffff; }
         body.dark-mode h1, body.dark-mode h2 { color: #bb86fc; }
-        body.dark-mode blockquote { color: #bbb; }
+        body.dark-mode .box-frase { background: #3d2b1f; color: #eee; border-left-color: #e65100; }
 
-        /* Estilos adicionais */
+        /* Navegação e Perfil */
         nav { background: #333; padding: 10px; color: white; text-align: center; } 
         nav a { color: white; text-decoration: none; }
-        blockquote { font-style: italic; color: #555; border-left: 4px solid #ccc; padding-left: 10px; margin: 20px 0; }
         #perfil { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
         #foto { width: 100px; height: 100px; border-radius: 50%; background: #ddd; object-fit: cover; }
-        input { padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; width: 80%; }
+        
+        /* Contador */
         .contador-container { margin: 20px; padding: 15px; background: #e3f2fd; border-radius: 10px; }
         #valor-contador { font-weight: bold; color: #1976d2; font-size: 1.5em; }
+
+        /* Estilos da Box de Frase */
+        .box-frase {
+            border-left: 5px solid #ff9800;
+            padding: 20px;
+            background: #fff3e0;
+            font-style: italic;
+            margin: 20px 0;
+        }
+        #btn-nova-frase {
+            background: #ff9800;
+            color: white;
+            font-style: normal;
+            margin-top: 10px;
+        }
+
+        /* Botões Gerais */
         button { cursor: pointer; margin: 5px; padding: 8px 12px; border: none; border-radius: 5px; }
         #btn-incrementar { background: #4caf50; color: white; }
         #btn-zerar { background: #f44336; color: white; }
         .btn-acao { background: #607d8b; color: white; }
-        .theme-switch { margin-bottom: 15px; }
         #toggle-theme { background: #333; color: white; border: 1px solid #555; }
+        input { padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; width: 80%; }
     </style>
 </head>
 <body>
@@ -67,15 +72,7 @@
             <p id="bio">Sua bio aparece aqui...</p>
         </div>
 
-        <div class="theme-switch">
-            <button id="toggle-theme">Alternar Modo Escuro</button>
-        </div>
-
-        <h1>Olá, GitHub!</h1>
-        
-        <section>
-            <blockquote>"O Git mudou minha vida!" - Dev Iniciante</blockquote>
-        </section>
+        <button id="toggle-theme">Alternar Modo Escuro</button>
 
         <div class="contador-container">
             <h2>Contador: <span id="valor-contador">0</span></h2>
@@ -83,55 +80,55 @@
             <button id="btn-zerar">Zerar</button>
         </div>
 
+        <!-- Seção de Frases -->
+        <div class="box-frase">
+            <p id="texto-frase">Clique no botão para se inspirar!</p>
+            <button id="btn-nova-frase">Nova Frase</button>
+        </div>
+
         <input type="text" id="nome" placeholder="Seu nome"><br>
-        
         <button class="btn-acao" onclick="dizerOi()">Dizer Oi</button>
         <button class="btn-acao" onclick="mudarCor()">Mudar Cor</button>
-        
-        <p><a href="sobre.html">Ir para Sobre</a></p>
     </div>
 
     <script>
-        // Perfil e Saudação
+        // Perfil
         function carregarPerfil() {
-            document.getElementById('nome-usuario').innerText = "Nome nome";
+            document.getElementById('nome-usuario').innerText = "Hique Dev";
             document.getElementById('bio').innerText = "Aprendendo Git e GitHub na prática! 🚀";
         }
         carregarPerfil();
 
-        const hora = new Date().getHours(); 
-        if(hora < 12) alert('Bom dia!');
-
+        // Saudação e Ações
         function dizerOi() { 
             const n = document.getElementById('nome').value; 
-            if(n) {
-                alert('Oi ' + n); 
-                document.getElementById('nome-usuario').innerText = n;
-            }
+            if(n) { alert('Oi ' + n); document.getElementById('nome-usuario').innerText = n; }
         }
 
         function mudarCor() {
-            document.body.style.backgroundColor = 
-                '#' + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
         }
 
         // Contador
         let count = 0;
         const display = document.getElementById('valor-contador');
-        document.getElementById('btn-incrementar').onclick = function() {
-            count++;
-            display.innerText = count;
-        };
-        document.getElementById('btn-zerar').onclick = function() {
-            count = 0;
-            display.innerText = count;
-        };
+        document.getElementById('btn-incrementar').onclick = () => { count++; display.innerText = count; };
+        document.getElementById('btn-zerar').onclick = () => { count = 0; display.innerText = count; };
 
-        // Lógica do Tema Atualizada
-        const btnTheme = document.getElementById('toggle-theme');
-        btnTheme.onclick = function() {
-            // O 'toggle' adiciona a classe se ela não existe, e remove se ela já existe
-            document.body.classList.toggle('dark-mode');
+        // Tema
+        document.getElementById('toggle-theme').onclick = () => document.body.classList.toggle('dark-mode');
+
+        // Lógica das Frases
+        const frases = [
+            "O melhor commit é o de hoje!",
+            "Seu código está ficando incrível.",
+            "Persistência é o segredo do dev.",
+            "Um bug hoje, um aprendizado amanhã."
+        ];
+
+        document.getElementById('btn-nova-frase').onclick = function() {
+            const random = Math.floor(Math.random() * frases.length);
+            document.getElementById('texto-frase').innerText = frases[random];
         };
     </script>
 </body>
