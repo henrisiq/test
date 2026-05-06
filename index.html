@@ -3,43 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Meu Teste GitHub</title>
+    <!-- O link do favicon deve ficar sempre no head -->
+    <link rel="icon" href="https://flaticon.com">
     <style>
-    body { background-color: #f0f0f2; font-family: sans-serif; }
-    h1 { color: #2c3e50; }
-    h2 { color: blue; }
-    .container {
-        max-width: 400px;
-        margin: 50px auto;
-        padding: 20px;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        text-align: center;
-    }
-    nav { background: #333; padding: 10px; color: white; } nav a { color: white; text-decoration: none; }
+        body { background-color: #f0f0f2; font-family: sans-serif; }
+        h1 { color: #2c3e50; }
+        h2 { color: blue; }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        nav { background: #333; padding: 10px; color: white; text-align: center; } 
+        nav a { color: white; text-decoration: none; }
     </style>
-
 </head>
 <body>
-    <nav><a href="#">Home</a> | <a href="#">Serviços</a></nav>
-    <link rel="icon" href="https://flaticon.com">
-    <h1>Olá, GitHub!</h1>
-    <p>Este é meu primeiro arquivo para testar commits.</p>
-    <p>Esta é a segunda tarefa feita em uma branch separada!</p>
-    <h2>Nossos Serviços</h2>
-    <ul><li>Consultoria</li><li>Desenvolvimento</li></ul>
-    <button onclick="mudarCor()">Mudar Cor</button>
+    <nav>
+        <a href="#">Home</a> | <a href="#">Serviços</a>
+    </nav>
+
     <div class="container">
         <h1>Olá, GitHub!</h1>
-        <p>Este é meu projeto de teste.</p>
+        <p>Este é meu primeiro arquivo para testar commits.</p>
+        <p>Esta é a segunda tarefa feita em uma branch separada!</p>
+        
+        <h2>Nossos Serviços</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li>Consultoria</li>
+            <li>Desenvolvimento</li>
+        </ul>
+        
+        <button onclick="mudarCor()">Mudar Cor</button>
+        
+        <p><a href="sobre.html">Ir para Sobre</a></p>
     </div>
-    <p>Aqui será linkado o sobre.html</p>
+
     <script>
     function mudarCor() {
         document.body.style.backgroundColor = 
             '#' + Math.floor(Math.random()*16777215).toString(16);
     }
     </script>
-
 </body>
 </html>
