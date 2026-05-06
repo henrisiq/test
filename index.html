@@ -38,7 +38,7 @@
         body.dark-mode h1, body.dark-mode h2 { color: #bb86fc; }
         body.dark-mode blockquote { color: #bbb; }
 
-        /* Restante dos estilos */
+        /* Estilos adicionais */
         nav { background: #333; padding: 10px; color: white; text-align: center; } 
         nav a { color: white; text-decoration: none; }
         blockquote { font-style: italic; color: #555; border-left: 4px solid #ccc; padding-left: 10px; margin: 20px 0; }
@@ -92,7 +92,7 @@
     </div>
 
     <script>
-        // Funções de Perfil e Saudação
+        // Perfil e Saudação
         function carregarPerfil() {
             document.getElementById('nome-usuario').innerText = "Hique Dev";
             document.getElementById('bio').innerText = "Aprendendo Git e GitHub na prática! 🚀";
@@ -115,7 +115,7 @@
                 '#' + Math.floor(Math.random()*16777215).toString(16);
         }
 
-        // Lógica do Contador
+        // Contador
         let count = 0;
         const display = document.getElementById('valor-contador');
         document.getElementById('btn-incrementar').onclick = function() {
@@ -127,8 +127,10 @@
             display.innerText = count;
         };
 
-        // Lógica do Modo Escuro
-        document.getElementById('toggle-theme').onclick = function() {
+        // Lógica do Tema Atualizada
+        const btnTheme = document.getElementById('toggle-theme');
+        btnTheme.onclick = function() {
+            // O 'toggle' adiciona a classe se ela não existe, e remove se ela já existe
             document.body.classList.toggle('dark-mode');
         };
     </script>
