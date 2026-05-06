@@ -6,7 +6,7 @@
 - Adicionar novas tarefas.
 - Marcar tarefas como concluídas.
 - Filtrar tarefas por categoria (Reciclagem, Energia, Água).
-Contador de "pontos ecológicos" ao finalizar atividades.
+- Contador de "pontos ecológicos" ao finalizar atividades.
 
 🛠️ Tecnologias Utilizadas
 HTML5: Estrutura da página.
