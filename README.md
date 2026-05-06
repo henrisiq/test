@@ -5,7 +5,7 @@
 ## Funcionalidades 🚀
 - Adicionar novas tarefas.
 - Marcar tarefas como concluídas.
-Filtrar tarefas por categoria (Reciclagem, Energia, Água).
+- Filtrar tarefas por categoria (Reciclagem, Energia, Água).
 Contador de "pontos ecológicos" ao finalizar atividades.
 
 🛠️ Tecnologias Utilizadas
