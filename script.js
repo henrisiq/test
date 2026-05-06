@@ -9,6 +9,12 @@ window.onscroll = () => {
     }
 };
 
+// Lógica das Abas
+function aba(n) { 
+    document.getElementById('aba1').style.display = n===1 ? 'block' : 'none'; 
+    document.getElementById('aba2').style.display = n===2 ? 'block' : 'none'; 
+}
+
 // Carregamento de Perfil
 function carregarPerfil() {
     document.getElementById('nome-usuario').innerText = "Hique Dev";
