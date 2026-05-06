@@ -36,7 +36,7 @@
         .contador-container { margin: 20px; padding: 15px; background: #e3f2fd; border-radius: 10px; }
         #valor-contador { font-weight: bold; color: #1976d2; font-size: 1.5em; }
 
-        /* NOVOS ESTILOS DA BOX DE FRASE */
+        /* Estilos da Box de Frase */
         .box-frase {
             border-left: 5px solid #ff9800;
             padding: 20px;
@@ -92,12 +92,14 @@
     </div>
 
     <script>
+        // Perfil
         function carregarPerfil() {
             document.getElementById('nome-usuario').innerText = "Hique Dev";
             document.getElementById('bio').innerText = "Aprendendo Git e GitHub na prática! 🚀";
         }
         carregarPerfil();
 
+        // Saudação e Ações
         function dizerOi() { 
             const n = document.getElementById('nome').value; 
             if(n) { alert('Oi ' + n); document.getElementById('nome-usuario').innerText = n; }
@@ -115,6 +117,19 @@
 
         // Tema
         document.getElementById('toggle-theme').onclick = () => document.body.classList.toggle('dark-mode');
+
+        // Lógica das Frases
+        const frases = [
+            "O melhor commit é o de hoje!",
+            "Seu código está ficando incrível.",
+            "Persistência é o segredo do dev.",
+            "Um bug hoje, um aprendizado amanhã."
+        ];
+
+        document.getElementById('btn-nova-frase').onclick = function() {
+            const random = Math.floor(Math.random() * frases.length);
+            document.getElementById('texto-frase').innerText = frases[random];
+        };
     </script>
 </body>
 </html>
